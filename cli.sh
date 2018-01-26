@@ -3,23 +3,8 @@
 if [[ "$2" == "--start" ]]; then
     echo "Starting App"
 
-    mkdir -p data
-    mkdir -p data/queues
-    mkdir -p data/dbs
-
-    mkdir -p data/pics
-    mkdir -p data/pics_sm
-
-    mkdir -p logs
-    mkdir -p logs/app
-    mkdir -p logs/scoring
-
-    python -m app.score_pic data/queues/pic_queue.db > logs/scoring/pics.log 2>&1 &
-
     if [[ "$1" == "--prod" ]]; then
         source activate app
-        # TODO: remove once scoring is non file based
-        # rm -rf  data/pics/*
 
         mkdir -p logs/nginx
 
@@ -28,7 +13,7 @@ if [[ "$2" == "--start" ]]; then
         sudo rm -f /etc/nginx/sites-enabled/default
         sudo rm -f /etc/nginx/sites-enabled/default
         sudo touch /etc/nginx/sites-available/app
-        sudo cp /home/ubuntu/duck-detector/app/nginx/app.conf /etc/nginx/sites-available/app
+        sudo cp /home/ubuntu/gong/app/nginx/app.conf /etc/nginx/sites-available/app
         sudo rm -f /etc/nginx/sites-enabled/app
         sudo ln -s /etc/nginx/sites-available/app /etc/nginx/sites-enabled/app
         sudo service nginx restart
@@ -57,7 +42,4 @@ if [[ "$2" == "--kill" ]]; then
         pgrep "flask" | xargs kill
     fi
 
-    pgrep -f "score_pic" | xargs kill
-
-    rm -f data/queues/pic_queue.db
 fi
