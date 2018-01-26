@@ -1,0 +1,38 @@
+{% extends "bootstrap/base.html" %}
+
+{% block styles %}
+{{ super() }}
+{% endblock %}
+
+{% block title %}Gong{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+  $(document).on('change', ':file', function() {
+    $('#pic-form').submit();
+  });
+  var audioControl = document.getElementById("gong_audio");
+  audioControl.onended = function(){
+    this.currentTime = 0;
+    var delay = setTimeout(function(){
+      audioControl.play();
+      clearTimeout(delay);
+    }, Number(document.getElementById("delay_input").value)*1000 - 12000);
+  }
+</script>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}
+
+{% block content %}
+<audio id="gong_audio" preload autoplay>
+    <source src="{{ audio_url }}">
+</audio>
+<div class="outer">
+  <div align="middle" class="middle">
+    <input id="delay_input" type="text" value="30">
+  </div>
+</div>
+
+{{ super() }}
+{% endblock %}

@@ -1,0 +1,28 @@
+body {
+    background: url(images/gong.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+input[type="text"]
+  {
+      background: transparent;
+      border: none;
+      font-size:250px;
+      font-family: "Arial";
+      width:100%;
+      text-align: center;
+      color:black;
+  }
+.outer {
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}

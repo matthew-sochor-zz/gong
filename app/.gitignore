@@ -1,22 +1,4 @@
-# skip random crap
-*.DS_Store
-*__MACOSX*
-*Untitled*
-
-# skip node crap
-*node_modules/
-
-# skip generated data
-*data/
-*.h5
-*.zip
-*images*
-
-# skip terraform state files
-*tfstate*
-
-# skip csvs
-*.csv
+## python
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -40,6 +22,7 @@ lib64/
 parts/
 sdist/
 var/
+wheels/
 *.egg-info/
 .installed.cfg
 *.egg
@@ -86,7 +69,7 @@ docs/_build/
 # PyBuilder
 target/
 
-# IPython Notebook
+# Jupyter Notebook
 .ipynb_checkpoints
 
 # pyenv
@@ -95,10 +78,14 @@ target/
 # celery beat schedule file
 celerybeat-schedule
 
+# SageMath parsed files
+*.sage.py
+
 # dotenv
 .env
 
 # virtualenv
+.venv
 venv/
 ENV/
 
@@ -108,7 +95,8 @@ ENV/
 # Rope project settings
 .ropeproject
 
-## emacs stuff
+
+## emacs
 
 # -*- mode: gitignore; -*-
 *~
@@ -156,8 +144,12 @@ flycheck_*.el
 # directory configuration
 .dir-locals.el
 
-# nginx
-logs/*
+## app
 
-# notebooks
-*.ipynb
+data/
+
+## windows
+Thumbs.db
+
+## mac
+.DS_Store
