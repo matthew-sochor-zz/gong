@@ -11,8 +11,8 @@ sudo apt install -y git htop tmux
 
 curl -O https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 
-O
-rm Miniiconda3-*-Linux-x86_64.sh
+bash Miniconda3-*-Linux-x86_64.sh -b
+rm Miniconda3-*-Linux-x86_64.sh
 
 export PATH="$HOME/miniconda3/bin:$PATH"
 echo "# Miniconda3" >> $HOME/.bashrc
