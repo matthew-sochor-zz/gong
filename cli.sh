@@ -6,6 +6,7 @@ if [[ "$2" == "--start" ]]; then
     if [[ "$1" == "--prod" ]]; then
         source activate app
 
+        mkdir -p logs/app
         mkdir -p logs/nginx
 
         # there has to be a better way to do this with ENV vs sudo

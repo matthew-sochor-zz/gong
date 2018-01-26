@@ -21,8 +21,9 @@ echo 'export PATH="$HOME/miniconda3/bin:$PATH"' >> $HOME/.bashrc
 conda create --name app python=3.6 -y
 source activate app
 
-pip install flask flask_bootstrap
+pip install flask flask_bootstrap gunicorn
 
 pip freeze > requirements.txt
 
+sudo apt install -y nginx-light
 sudo apt install -y supervisor
